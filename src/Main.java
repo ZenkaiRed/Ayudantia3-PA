@@ -10,6 +10,7 @@ public class Main {
 
         userList.addUser(user);
 
+        // Aquí realizo un print
         System.out.println(userList.getUser("20723668-3"));
 
 
