@@ -1,0 +1,82 @@
+@startuml
+skin rose
+
+package model {
+
+    class User {
+        - firstName: String
+        - lastName: String
+        - rut: String
+        - membership: Membership
+
+        + User(firstName:String, lastName:String,
+        rut:String, membership:Membership)
+        + get()
+        + set()
+    }
+
+    class Product {
+        - eanCode: long
+        - name: String
+        - quantity: int
+
+        +Product(eanCode:long, name:String, quantity:int)
+        + get()
+        + set()
+    }
+
+    enum Membership {
+        NORMAL
+        PREMIUM
+    }
+
+    note "La membresia puede ser\nNormal o Premium" as N1
+
+    User --> N1
+    User --> Membership
+
+}
+
+package list {
+
+    class UserList {
+        - quantity: int
+        - maxQuantity: int
+
+        + UserList(maxQuantity: int)
+        + addUser(firstName:String, lastName:String,
+        rut:String, membership:String): boolean
+        + addUser(user:User): boolean
+        + searchUser(rut:String): boolean
+        + getUser(rut:String): String
+        + getUser(position:int): String
+        + deleteUser(rut:String): boolean
+        + deleteUser(position:int): boolean
+        + getUsersAlphabetical(): String[]
+        + get() & set()
+    }
+
+    class ProductList {
+        - quantity: int
+        - maxQuantity: int
+
+        + ProductList(maxQuantity: int)
+        + addProduct(eanCode:String, name:String, quantity:int): boolean
+        + addProduct(product:Product): boolean
+        + searchProduct(rut:String): boolean
+        + getProduct(eanCode:String): String
+        + getProduct(position:int): String
+        + deleteProduct(eanCode:String): boolean
+        + deleteProduct(position:int): boolean
+        + getProductDescendent(): String[]
+        + get() & set()
+    }
+
+    UserList o-- User : -userList: User[]
+    ProductList o-- Product : -productList: Product[]
+
+    User --> ProductList : -productList: ProductList
+}
+
+
+@enduml
