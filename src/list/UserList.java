@@ -1,6 +1,5 @@
 package list;
 
-import model.Membership;
 import model.User;
 
 public class UserList {
@@ -42,7 +41,7 @@ public class UserList {
         return true;
     }
 
-    public boolean addUser(String firstName, String lastName, String rut, Membership membership){
+    public boolean addUser(String firstName, String lastName, String rut, String membership){
         User user = new User(firstName, lastName, rut, membership);
         return this.addUser(user);
     }
@@ -71,7 +70,7 @@ public class UserList {
         String data = "Nombre: " + user.getFirstName() +
                 "\nApellido: " + user.getLastName() +
                 "\nRUT: " + user.getRut() +
-                "\nMembresía: " + user.getMembership().name();
+                "\nMembresía: " + user.getMembership();
 
         return data;
     }

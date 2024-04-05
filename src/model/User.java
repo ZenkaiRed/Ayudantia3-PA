@@ -5,16 +5,16 @@ public class User {
     private String firstName;
     private String lastName;
     private String rut;
-    private Membership membership;
+    private String membership;
 
     public User(String firstName, String lastName, String rut) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.rut = rut;
-        this.membership = Membership.NORMAL;
+        this.membership = "NORMAL";
     }
 
-    public User(String firstName, String lastName, String rut, Membership membership) {
+    public User(String firstName, String lastName, String rut, String membership) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.rut = rut;
@@ -45,15 +45,18 @@ public class User {
         this.rut = rut;
     }
 
-    public Membership getMembership() {
+    public String getMembership() {
         return membership;
     }
 
-    public void setMembership(Membership membership) {
+    public void setMembership(String membership) {
         this.membership = membership;
     }
 
     public String toString(){
-        return this.rut;
+        return "Nombre: " + this.firstName +
+                "\nApellido: " + this.lastName +
+                "\nRUT: " + this.rut +
+                "\nMembresía: " + this.membership;
     }
 }
