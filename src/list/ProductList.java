@@ -147,7 +147,7 @@ public class ProductList {
      * @param position Posición del producto en la lista.
      * @return Retorna un booleano que indica si se pudo eliminar el producto o no.
      */
-    public boolean deleteProduct(int position){
+    public boolean deleteProductByPos(int position){
         if (position < 0 || position >= this.quantity){
             return false;
         }
